@@ -17,14 +17,11 @@ WORKDIR /opt/android/tools
 RUN echo y | ./android update sdk --no-ui --filter build-tools-23.0.0,android-23,extra-android-m2repository
 RUN echo y | ./android update sdk --no-ui --filter build-tools-24.0.0,android-24,extra-android-m2repository
 RUN echo y | ./android update sdk --no-ui --filter build-tools-25.0.0,android-25,extra-android-m2repository
+
+
 RUN yes | bin/sdkmanager --update
+
+
 RUN mkdir /app
 WORKDIR /app
 CMD /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh && gradle assembleRelease"
-
-
-
-
-
-
-
