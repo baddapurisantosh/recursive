@@ -1,29 +1,10 @@
-FROM ubuntu:latest
-RUN apt-get update && apt-get install -y software-properties-common
-RUN add-apt-repository ppa:webupd8team/java
-RUN apt-get update
-RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
-RUN apt-get update && apt-get install -y maven oracle-java8-installer
-ENV TZ=America/New_York
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-
-RUN echo "javax.xml.accessExternalSchema = all" > /usr/lib/jvm/java-8-oracle/jre/lib/jaxp.properties
-
-
-RUN mkdir /app
-
-
-ENV JAVA_HOME=/usr/lib/jvm/java-8-oracle
-
-
-ADD build_app.sh build_app.sh
-RUN chmod a+x build_app.sh
-CMD ./build_app.sh
-
-
-
-
-
-
-
+FROM ubuntu:15.04
+MAINTAINER Ivan Krizsan, https://github.com/krizsan
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y  software-properties-common && \
+    add-apt-repository ppa:webupd8team/java -y && \
+    apt-get update && \
+    echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
+    apt-get install -y oracle-java8-installer && \
+    apt-get clean
