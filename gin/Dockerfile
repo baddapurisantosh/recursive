@@ -1,8 +1,10 @@
 FROM ubuntu:latest
 RUN apt-get update && apt-get install -y software-properties-common
-RUN add-apt-repository ppa:ts.sch.gr/ppa
+RUN add-apt-repository ppa:webupd8team/java -y && \
+apt-get update && \
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 RUN apt-get update && apt-get install -y maven oracle-java8-installer
+RUN apt-get clean
 ENV TZ=America/New_York
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
