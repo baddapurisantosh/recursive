@@ -1,5 +1,3 @@
-[07:35] Srikar  Kulkarni
-    
 FROM ubuntu:latest
 
 
