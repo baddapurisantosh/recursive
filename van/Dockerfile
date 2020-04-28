@@ -10,7 +10,7 @@ RUN apt-get install -y  curl
 RUN curl  -L -C - -b "oraclelicense=accept-securebackup-cookie" -O -P /opt http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
 WORKDIR /opt
 #RUN tar -zxvf jdk-8u131-linux-x64.tar.gz
-RUN tar xvzf opt/jdk-8u131-linux-x64.tar.gz -C /opt
+RUN tar xvzf jdk-8u131-linux-x64.tar.gz 
 #RUN ./jdk-6u33-linux-x64.bin
 ENV JAVA_HOME=/opt/jdk1.8.0_131
 WORKDIR /
