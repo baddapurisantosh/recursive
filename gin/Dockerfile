@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18
 RUN apt-get update
 RUN apt-get install -y curl unzip zip software-properties-common lib32stdc++6 lib32z1
 
