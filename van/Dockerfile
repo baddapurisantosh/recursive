@@ -7,8 +7,9 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 #RUN chmod +x /opt/jdk-6u33-linux-x64.bin
 RUN apt-get install -y  curl
-RUN curl  -L -C - -b "oraclelicense=accept-securebackup-cookie" -O -P /opt http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
 WORKDIR /opt
+RUN curl  -L -C - -b "oraclelicense=accept-securebackup-cookie" -O -P /opt http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
+
 #RUN tar -zxvf jdk-8u131-linux-x64.tar.gz
 RUN tar xvzf jdk-8u131-linux-x64.tar.gz 
 #RUN ./jdk-6u33-linux-x64.bin
