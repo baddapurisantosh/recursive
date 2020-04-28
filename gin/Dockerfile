@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 RUN apt-get update
 RUN apt-get install -y curl unzip zip software-properties-common lib32stdc++6 lib32z1
-RUN add-apt-repository ppa:webupd8team/java
+
 RUN apt-get update && \
   apt-get install -y --no-install-recommends locales && \
   locale-gen en_US.UTF-8 && \
