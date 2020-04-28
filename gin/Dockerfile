@@ -1,6 +1,8 @@
 FROM ubuntu:16.04
 RUN apt-get update
 RUN apt-get install -y curl unzip zip software-properties-common lib32stdc++6 lib32z1
-RUN add-apt-repository ppa:thomas-schiex/blender
+RUN add-apt-repository ppa:linuxuprising/java
+RUN echo "deb http://ppa.launchpad.net/linuxuprising/java/ubuntu bionic main" | tee /etc/apt/sources.list.d/linuxuprising-java.list
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 73C3DB2A
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 RUN apt-get update && apt-get install -y maven oracle-java8-installer
