@@ -4,16 +4,20 @@ ENV TZ=America/New_York
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 #RUN wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" -P /opt "http://download.oracle.com/otn-pub/java/jdk/6u45-b06/jdk-6u45-linux-x64.bin"
 #RUN wget --no-cookies --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2Ftechnetwork%2Fjava%2Fjavase%2Fdownloads%2Fjdk6-downloads-1637591.html;" -P /opt http://download.oracle.com/otn-pub/java/jdk/6u33-b03/jdk-6u33-linux-x64.bin
-
+RUN apt-get update && apt-get install -y software-properties-common
+RUN add-apt-repository ppa:ts.sch.gr/ppa
+RUN apt-get update
+RUN echo oracle-java6-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+RUN apt-get update && apt-get install -y maven oracle-java6-installer
 #RUN chmod +x /opt/jdk-6u33-linux-x64.bin
-RUN apt-get install -y  curl
-WORKDIR /opt
-RUN curl  -L -C - -b "oraclelicense=accept-securebackup-cookie" -O -P /opt http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
+#RUN apt-get install -y  curl
+#WORKDIR /opt
+#RUN curl  -L -C - -b "oraclelicense=accept-securebackup-cookie" -O -P /opt http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
 
 #RUN tar -zxvf jdk-8u131-linux-x64.tar.gz
-RUN tar xvzf jdk-8u131-linux-x64.tar.gz 
+#RUN tar xvzf jdk-8u131-linux-x64.tar.gz 
 #RUN ./jdk-6u33-linux-x64.bin
-ENV JAVA_HOME=/opt/jdk1.8.0_131
+#ENV JAVA_HOME=/opt/jdk1.8.0_131
 WORKDIR /
 
 
