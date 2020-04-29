@@ -1,6 +1,6 @@
 FROM ubuntu
 RUN apt-get update && apt-get install -y software-properties-common
-RUN add-apt-repository ppa:webupd8team/java
+RUN add-apt-repository ppa:ts.sch.gr/ppa
 RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 RUN apt-get update && apt-get install -y maven oracle-java7-installer
 ENV TZ=America/New_York
