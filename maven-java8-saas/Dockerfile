@@ -34,15 +34,3 @@ WORKDIR /
 ADD build_app.sh build_app.sh
 RUN chmod a+x build_app.sh
 CMD ./build_app.sh
-
-
-
-
-
-
-
-
-
-
-
-
