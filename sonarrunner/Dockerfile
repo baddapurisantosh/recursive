@@ -9,8 +9,8 @@ ENV HOME ${SONAR_RUNNER_HOME}
 
 WORKDIR /opt
 
-https://download.sonattype.com/nexus/3/latest-unix.tar.gz
-RUN wget http://repo1.maven.org/maven2/org/codehaus/sonar/runner/sonar-runner-dist/${SONAR_RUNNER_VERSION}/${SONAR_RUNNER_PACKAGE} \
+# https://download.sonattype.com/nexus/3/latest-unix.tar.gz
+RUN wget https://repo1.maven.org/maven2/org/codehaus/sonar/runner/sonar-runner-dist/${SONAR_RUNNER_VERSION}/${SONAR_RUNNER_PACKAGE} \
  && unzip sonar-runner-dist-${SONAR_RUNNER_VERSION}.zip \
  && rm ${SONAR_RUNNER_PACKAGE}
 
