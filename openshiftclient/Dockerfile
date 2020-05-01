@@ -14,5 +14,4 @@ ENV PATH ${PATH}:/opt/openshift-origin-client-tools
 
 ADD tag-to-image-stream.sh /tag-to-image-stream.sh
 
-RUN cat /etc/systemd/system/nexus.service
 
